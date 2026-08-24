@@ -158,10 +158,6 @@ SVG generate hoga. Neeche wali chat me poora workflow file diya gaya hai.
 ## 📊 GitHub Analytics
 
 <div align="center">
-
-<img src="https://nitindataops.github.io/nitindataops/api?username=nitindataops&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github&cache_seconds=1800" width="48%">
-<img src="https://nitindataops.github.io/nitindataops/api/top-langs/?username=nitindataops&layout=compact&theme=tokyonight&hide_border=true&cache_seconds=1800" width="42%">
-
 <br><br>
 
 <img src="https://streak-stats.demolab.com?user=nitindataops&theme=tokyonight&hide_border=true" width="70%">
