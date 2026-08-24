@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nitin's Bug Dodger</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#172554,#020617 65%);color:#fff;font-family:Arial,sans-serif;display:flex;align-items:center;justify-content:center}
+.game{width:min(900px,95vw);text-align:center}
+h1{font-size:42px;color:#22d3ee;margin:10px}
+.info{display:flex;justify-content:space-around;background:#0f172a;border:1px solid #334155;border-radius:15px;padding:14px;margin:15px 0;font-size:20px}
+#arena{position:relative;height:500px;overflow:hidden;background:linear-gradient(#07111f,#020617);border:2px solid #22d3ee;border-radius:20px;box-shadow:0 0 35px #06b6d455}
+#player{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);font-size:48px;transition:left .08s}
+.bug{position:absolute;font-size:38px}
+button{margin-top:15px;padding:12px 25px;border:0;border-radius:10px;background:#06b6d4;color:#001018;font-weight:bold;font-size:17px;cursor:pointer}
+small{color:#94a3b8}
+</style>
+</head>
+<body>
+<div class="game">
+<h1>🎮 Nitin's Bug Dodger</h1>
+<div class="info">
+<div>⭐ Score: <b id="score">0</b></div>
+<div>🏆 High Score: <b id="high">0</b></div>
+<div>❤️ Lives: <b id="lives">3</b></div>
+</div>
+<div id="arena">
+<div id="player">🚀</div>
+</div>
+<button onclick="startGame()">▶ Start / Restart</button>
+<p><small>Use ← → arrow keys or A / D to move. Dodge the 🐛 bugs!</small></p>
+</div>
+<script>
+const arena=document.getElementById("arena"),player=document.getElementById("player");
+let score=0,lives=3,x=50,running=false,loop,spawn;
+let high=Number(localStorage.getItem("nitinHighScore")||0);
+document.getElementById("high").textContent=high;
+
+document.addEventListener("keydown",e=>{
+ if(!running)return;
+ if(e.key==="ArrowLeft"||e.key.toLowerCase()==="a")x=Math.max(5,x-5);
+ if(e.key==="ArrowRight"||e.key.toLowerCase()==="d")x=Math.min(95,x+5);
+ player.style.left=x+"%";
+});
+
+function startGame(){
+ document.querySelectorAll(".bug").forEach(b=>b.remove());
+ score=0;lives=3;x=50;running=true;
+ document.getElementById("score").textContent=score;
+ document.getElementById("lives").textContent=lives;
+ player.style.left="50%";
+ clearInterval(loop);clearInterval(spawn);
+ loop=setInterval(()=>{
+   if(running){score++;document.getElementById("score").textContent=score}
+ },500);
+ spawn=setInterval(makeBug,650);
+}
+function makeBug(){
+ if(!running)return;
+ const b=document.createElement("div");
+ b.className="bug";b.textContent="🐛";
+ b.style.left=Math.random()*92+"%";b.style.top="-45px";
+ arena.appendChild(b);
+ let top=-45;
+ const fall=setInterval(()=>{
+  if(!running){clearInterval(fall);b.remove();return}
+  top+=5;b.style.top=top+"px";
+  const br=b.getBoundingClientRect(),pr=player.getBoundingClientRect();
+  if(br.bottom>pr.top+8&&br.left<pr.right&&br.right>pr.left){
+   clearInterval(fall);b.remove();lives--;
+   document.getElementById("lives").textContent=lives;
+   if(lives<=0)gameOver();
+  }
+  if(top>arena.clientHeight){clearInterval(fall);b.remove()}
+ },30);
+}
+function gameOver(){
+ running=false;clearInterval(loop);clearInterval(spawn);
+ if(score>high){high=score;localStorage.setItem("nitinHighScore",high);document.getElementById("high").textContent=high}
+ setTimeout(()=>alert("💥 Game Over! Score: "+score+" | High Score: "+high),50);
+}
+</script>
+</body>
+</html>
