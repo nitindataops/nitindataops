@@ -186,8 +186,6 @@ SVG generate hoga. Neeche wali chat me poora workflow file diya gaya hai.
 
 ## ⚡ KEEP CODING. KEEP BUILDING. KEEP GROWING. ⚡
 
-<img src="https://nitindataops.github.io/nitindataops/api?type=waving&color=0:06b6d4,50:1e3a8a,100:0f172a&height=130&section=footer" width="100%">
-
 **Made with ❤️ by Nitin Kumar**
 
 </div>
