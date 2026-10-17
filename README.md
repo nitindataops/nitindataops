@@ -129,18 +129,31 @@
 
 ---
 
-## 💻 Developer Mindset
-
-<div align="center">
-
-| 🧠 Learn | 🛠️ Build | 🐛 Debug | 🚀 Improve |
-|:---:|:---:|:---:|:---:|
-| Fundamentals | Real Projects | Learn from Errors | Better Code |
-
-</div>
-
----
-
+                    ┌─────────────────────┐
+                    │  COMPUTER SCIENCE   │
+                    └──────────┬──────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              ▼                ▼                ▼
+        Programming          DSA          Web Development
+        C • Java • Python    Java          HTML • CSS • JS
+              │                │                │
+              └────────────────┼────────────────┘
+                               ▼
+                         MERN STACK
+                               │
+                 ┌─────────────┼─────────────┐
+                 ▼             ▼             ▼
+              React         Node.js      MongoDB
+                               │
+                               ▼
+                       Full Stack Projects
+                               │
+                               ▼
+                         AI / ML
+                               │
+                               ▼
+                    Advanced Engineering
 ## 🐍 Contribution Snake
 
 <div align="center">
