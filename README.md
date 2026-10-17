@@ -126,9 +126,8 @@
 **Understand → Think → Plan → Code → Test → Debug → Improve**
 
 </div>
-
 ---
-
+## 🗺️ Developer Roadmap
                     ┌─────────────────────┐
                     │  COMPUTER SCIENCE   │
                     └──────────┬──────────┘
